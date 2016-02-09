@@ -5,9 +5,9 @@ from bokeh.plotting import figure, output_file, show
 import jinja2
 from IPython.display import HTML
 
-app_tckr = Flask(__name__)
+app = Flask(__name__)
 
-app_tckr.vars={}
+app.vars={}
 
 
 template = jinja2.Template("""
@@ -18,7 +18,7 @@ template = jinja2.Template("""
 <body>
     {{ script }}
     {{ div }}
-    <form id='userinfoform_tckr' method='get' action='/tckr' >
+    <form id='userinfoform_tckr' method='get' action='index_tckr' >
     <p>
     <input type='submit' value='Go Back' />
     </p>
@@ -28,17 +28,17 @@ template = jinja2.Template("""
 """)
 
 
-@app_tckr.route('/tckr', methods=['GET','POST'])
+@app.route('/index_tckr', methods=['GET','POST'])
 def index_tckr():
 	if request.method == 'GET':   
 		return render_template('userinfo_tckr.html')
 	else: 
-		app_tckr.vars['Ticker'] = request.form['name_tckr']
-		stock_data = pd.read_csv("https://www.quandl.com/api/v3/datasets/WIKI/%s.csv?auth_token=SPdj1tC3fV-eeCdt9YGq" % app_tckr.vars['Ticker'],
+		app.vars['Ticker'] = request.form['name_tckr']
+		stock_data = pd.read_csv("https://www.quandl.com/api/v3/datasets/WIKI/%s.csv?auth_token=SPdj1tC3fV-eeCdt9YGq" % app.vars['Ticker'],
         parse_dates=['Date'] )
         
     	p = figure(width=800, height=250, x_axis_type="datetime",\
-    		title="%s" %app_tckr.vars['Ticker'].upper(), title_text_font_size='10pt')
+    		title="%s" %app.vars['Ticker'].upper(), title_text_font_size='10pt')
     	p.line(stock_data['Date'], stock_data['Close'], color='navy', alpha=0.5)
     	p.yaxis.axis_label = "End of Day (USD)"
     	p.yaxis.axis_label_text_font_size = "9pt"
@@ -50,15 +50,15 @@ def index_tckr():
     	return template.render(script=script, div=div)
 
 
-@app_tckr.errorhandler(500)
+@app.errorhandler(500)
 def pageNotFound(error):
 	return render_template('error_page.html')
     
-@app_tckr.errorhandler(404)
+@app.errorhandler(404)
 def pageNotFound(error):
 	return render_template('error_page.html')
 
 
 if __name__ == "__main__":
-    app_tckr.run(debug=False)
+    app.run(debug=False)
     
