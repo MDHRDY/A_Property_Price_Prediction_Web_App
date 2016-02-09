@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Create Chart</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_tckr.css')}}'>
+<div class=page>
+  <h1>Generate Interactive Stock Charts</h1>
+  <div class=metanav>
+    <h4>
+      Enter a stock ticker to view its history in an interactive chart.
+    </h4>
+
+    <form id='userinfoform_lulu' method='post' action='tckr' >
+      <p>
+    Stock Ticker: <input type='text' name='name_tckr' />
+      </p>
+      <p>
+    <input type='submit' value='Submit' />
+      </p>
+    </form>
+
+  </div>
+</div>

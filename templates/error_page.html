@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Error</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_tckr.css')}}'>
+<div class=page>
+  <h1>Oops!!</h1>
+  <div class=metanav>
+    <h4>
+      Something went wrong. Please verify the ticker is valid.
+    </h4>
+
+    <form id='error_page' method='get' action='tckr' >
+ 
+      <p>
+    <input type='submit' value='Go Back' />
+      </p>
+    </form>
+
+  </div>
+</div>
