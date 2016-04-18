@@ -6,12 +6,14 @@
 <h4> The figure below displays datapoints obtained from merging three independent datasets. Latitude and longitude coordinates were scraped from property listings in the real estate section of the new york times, 
 and these points were matched to state plane coordinates, obtained from new york city's department of finance. The department of finance dataset was aligned with an additional city dataset containing property assessment values. 
 All datapoints shown below have a listing price and a property assessment value. By analyzing differences between these two values, we can observe locations in the city where property values are rapidly rising. 
-</h4>
+
+
+<h4> This data set is also displayed with an embedded Google maps API <a href= "https://mdh.herokuapp.com/">here.</a> </h4>
+
 {{ script | safe }}
 {{ div | safe }}
- 
-<h4>&nbsp
-</h4>
+ </h4>
+
 <h4> The next figure displays a decision boundary obtained from a machine learning algorithm (using an SVM) 
 that demarcates two regions in Brooklyn (east of prospect park) where home values are growing at different rates. 
 Above the boundary, fewer properties have rapidly increased in value as compared to properties shown below the boundary. 
