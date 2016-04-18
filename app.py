@@ -7,7 +7,6 @@ from bokeh.charts import Scatter
 import jinja2
 from IPython.display import HTML
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 
@@ -42,5 +41,5 @@ def pageNotFound(error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
     
