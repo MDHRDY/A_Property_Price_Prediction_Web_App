@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<link rel=stylesheet type=text/css href=style_tckr.css>
+
 <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.0.min.css" type="text/css"/>
 <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.0.min.js"></script>
 <body>
-<h4> The figure below displays datapoints obtained from merging three independent datasets. Latitude and longitude coordinates were scraped from property listings in the real estate section of the new york times, 
-and these points were matched to state plane coordinates, obtained from new york city's department of finance. The department of finance dataset was aligned with an additional city dataset containing property assessment values. 
-All datapoints shown below have a listing price and a property assessment value. By analyzing differences between these two values, we can observe locations in the city where property values are rapidly rising. 
-
-
-<h4> 
+<h3>
+Despite the abundance of real estate information available on websites like Zillow, Trulia, and Realtor.com, 
+tools for analyzing real estate market-trends are less sophisticated than other online tools, such as portfolio 
+or stock trackers. Most real-estate websites highlight prevailing market conditions, but none assist investors 
+or home buyers in comparing changes to one neighborhood against another over time. </h3>
+<h3>
+Below is dataset highlighting changes to property values in New York City. All datapoints represent 1- to 3-unit residential
+properties. Homes that have increased in value by more than 50% over the last six years are shown in red, and homes that have
+depreciated in value by more than 50% over the last six years are shown in blue.
 {{ script | safe }}
 {{ div | safe }}
- </h4>
+ </h3>
 
-<h4> The next figure displays a decision boundary obtained from a machine learning algorithm (using an SVM) 
-that demarcates two regions in Brooklyn (east of prospect park) where home values are growing at different rates. 
-Above the boundary, fewer properties have rapidly increased in value as compared to properties shown below the boundary. 
-Homes that are currently listed at a price significantly above the value assessed by the department of finance are represented
-by green circles, and homes that are currently listed at a price that deviates less from a recently assessed value are represented
-</h4>
+(Note: if the color disappears upon using the 'Wheel Zoom' tool, simply pan slightly to the left or right, and the colors will refresh)
+<h3> 
+If you are familiar with New York City, you might be unsurprised by how much values have appreciated in Manhattan (if we also 
+considered Coops and Condos, most of the island would be covered in red). The extant of changes in Brooklyn, however, is more 
+astonishing. While wealthy neighborhoods close to Manhattan, such as Brooklyn Heights, Carroll Gardens and Park Slope, have 
+appreciated at rates similar to Greenwich Village or the Upper West Side, other Brooklyn haunts, far deeper into the borough's interior 
+than most hipsters have ventured, have also appreciated significantly. These areas could offer attractive investment opportunities for those
+that would prefer to avoid the buy-in price for Manhattan real estate. 
+</h3>
 
 {{ script | safe }}
 {{ div | safe }}
- 
+ <h3>
+ I haven't spent significant time in NYC for the last half decade, and from a cursory view of this data set, it's curious to see 
+ how much waterfront property along Staten Island, Brooklyn and the Rockaways has suffered - presumably from Hurricane Sandy. If you're 
+ in the market, I'd suggest (if the property insurance will cover the next big one) checking out the Rockaways before investors, 
+ artists and hipsters capitalize on basement prices. 
+  </h3>
+
 </body>
 </html>
