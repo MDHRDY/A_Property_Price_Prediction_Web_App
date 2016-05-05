@@ -19,8 +19,8 @@ app = Flask(__name__, static_url_path = "", static_folder = "")
 
 app.vars={}
 
-
 @app.route('/graph', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def generate_graph():
 	map_options = GMapOptions(lat=40.699389, lng=-73.955454, map_type="roadmap", zoom=10)
 	
