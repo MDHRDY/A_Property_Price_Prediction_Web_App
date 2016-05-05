@@ -8,6 +8,10 @@ import jinja2
 from IPython.display import HTML
 import numpy as np
 
+from bokeh.io import output_file, show
+from bokeh.models import (
+  GMapPlot, GMapOptions, ColumnDataSource, Circle, DataRange1d, PanTool, WheelZoomTool, BoxSelectTool
+)
 
 
 
@@ -18,14 +22,26 @@ app.vars={}
 
 @app.route('/graph', methods=['GET','POST'])
 def generate_graph():
-	df = pd.read_csv('For_Regression.csv')
-	xval = df['Latitude'].tolist()
-	yval = df['Longitude'].tolist()
-	plot = figure(width=500, height=500,title='Brooklyn Property Listings')
-	plot.yaxis.axis_label = "Latitude"
-	plot.xaxis.axis_label = "Longitude"
-
-	plot.scatter(yval,xval)
+	map_options = GMapOptions(lat=40.699389, lng=-73.955454, map_type="roadmap", zoom=10)
+	
+	plot = GMapPlot(
+    x_range=DataRange1d(), y_range=DataRange1d(), map_options=map_options, title="NYC"
+	)
+	
+	df = pd.read_csv('Over60percent_apprec.csv', low_memory=False)
+	#la = np.array(df.Lat) 
+	#lo = np.array(df.Long)
+	source = ColumnDataSource(
+    	data = dict(
+        	lat = np.array(df.Lat),
+        	lon = np.array(df.Long),
+    	)
+	)
+	circle = Circle(x="lon", y="lat", size=2, fill_color="blue", fill_alpha=0.8, line_color=None)
+	plot.add_glyph(source, circle)
+	plot.add_tools(PanTool(), WheelZoomTool())
+	#output_file("gmap_plot.html")
+	#show(plot)
 	script, div = components(plot)
 	return render_template('graph.html', script=script, div=div)
 
@@ -41,5 +57,5 @@ def pageNotFound(error):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
     
