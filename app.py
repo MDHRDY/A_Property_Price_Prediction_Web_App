@@ -47,10 +47,33 @@ def generate_graph():
 	circle2 = Circle(x="lon", y="lat", size=2, fill_color="blue", fill_alpha=0.8, line_color=None)
 	plot.add_glyph(source2, circle2)
 	plot.add_tools(PanTool(), WheelZoomTool())
-	#output_file("gmap_plot.html")
-	#show(plot)
 	script, div = components(plot)
 	return render_template('graph.html', script=script, div=div)
+
+
+@app.route('/Page2', methods=['GET','POST'])
+def generate_graph2():
+	map_options3 = GMapOptions(lat=40.652389, lng=-73.965454, map_type="roadmap", zoom=11)
+	
+	plot3 = GMapPlot(
+    x_range=DataRange1d(), y_range=DataRange1d(), map_options=map_options3, title="NYC"
+	)
+	
+	df3 = pd.read_csv('lst_yr_up_25percent_from50percentup_subset.csv', low_memory=False)
+	source3 = ColumnDataSource(
+    	data = dict(
+        	lat3 = np.array(df3.Lat),
+        	lon3 = np.array(df3.Long),
+    	)
+	)
+	circle3 = Circle(x="lon3", y="lat3", size=5, fill_color="red", fill_alpha=0.8, line_color=None)
+	plot3.add_glyph(source3, circle3)
+	plot3.add_tools(PanTool(), WheelZoomTool())
+	script, div = components(plot3)
+	
+	return render_template('Page2.html', script=script, div=div)
+
+
 
 
 @app.errorhandler(500)
