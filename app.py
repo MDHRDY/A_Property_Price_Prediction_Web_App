@@ -28,7 +28,7 @@ def generate_graph():
     x_range=DataRange1d(), y_range=DataRange1d(), map_options=map_options, title="NYC"
 	)
 	
-	df = pd.read_csv('Over50percent_apprec.csv', low_memory=False)
+	df = pd.read_csv('heroku_test.csv', low_memory=False)
 	df2 = pd.read_csv('Loss_of_Over50percent.csv', low_memory=False)
 	source = ColumnDataSource(
     	data = dict(
@@ -44,8 +44,8 @@ def generate_graph():
 	)	
 	circle = Circle(x="lon", y="lat", size=2, fill_color="red", fill_alpha=0.8, line_color=None)
 	plot.add_glyph(source, circle)
-	circle2 = Circle(x="lon", y="lat", size=2, fill_color="blue", fill_alpha=0.8, line_color=None)
-	plot.add_glyph(source2, circle2)
+	#circle2 = Circle(x="lon", y="lat", size=2, fill_color="blue", fill_alpha=0.8, line_color=None)
+	#plot.add_glyph(source2, circle2)
 	plot.add_tools(PanTool(), WheelZoomTool())
 	script, div = components(plot)
 	return render_template('graph.html', script=script, div=div)
