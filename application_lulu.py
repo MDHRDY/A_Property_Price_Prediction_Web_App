@@ -8,12 +8,13 @@ from flask import Flask,render_template, request, redirect
 #    sgd = dill.load(f)
 
 
-app_lulu = Flask(__name__)
+app_lulu = Flask(__name__, static_url_path = "", static_folder = "")
 
 
 app_lulu.vars={}
 
 @app_lulu.route('/nycProperty.html',methods=['GET','POST'])
+@app_lulu.route('/',methods=['GET','POST'])
 def index_lulu():
     nquestions=''
     if request.method == 'GET':
