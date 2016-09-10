@@ -31,4 +31,4 @@ def index_lulu():
 
     			
 if __name__ == '__main__':
-    app_lulu.run(debug=True)
+    app_lulu.run(debug=False)
