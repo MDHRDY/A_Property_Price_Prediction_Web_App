@@ -1,11 +1,11 @@
 from flask import Flask,render_template, request, redirect
-import dill
+#import dill
 
 
-with open("X.dill", "r") as f:
-    X1 = dill.load(f)    
-with open("SGD_regress.dill", "r") as f:
-    sgd = dill.load(f)
+#with open("X.dill", "r") as f:
+#    X1 = dill.load(f)    
+#with open("SGD_regress.dill", "r") as f:
+#    sgd = dill.load(f)
 
 
 app_lulu = Flask(__name__)
@@ -25,8 +25,8 @@ def index_lulu():
     	#app_lulu.vars['age'] = request.form['age_lulu']
     	
     	nquestions = app_lulu.vars['name']
-    	if nquestions == 'yes':
-    		nquestions = sgd.transform(X1)
+    	#if nquestions == 'yes':
+    	#	nquestions = sgd.transform(X1)
     	return render_template('nycProperty.html', num = nquestions)
 
     			
