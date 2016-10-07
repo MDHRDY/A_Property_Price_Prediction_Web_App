@@ -29,79 +29,8 @@
  <div class="container">
  <div class="row">
  	
-   		<!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> --!>
-   		<h1></h1>
-		<h3> Location, location, location! </h3>
-			We've all heard it.
-	
-			Good schools in the suburbs will lift the value of every home in that school district,
-			but the same is not true in cities,
-			where the significance of location often acts on smaller scales. 
-	 
-			A subway line, for example, confers 
-			significantly more value to an apartment four blocks away than to one that 
-			is fifteen. 
-   
-			If the same subway line is above ground however, 
-			it could depreciate the value of apartments (Oh, the noise! Shut those windows 
-			after showering) that are only steps away. </p>
-		
-		
-		<p>	Sorting out all of the local location-based contributions (proximity to parks, 
-		restaurants, shops, etc.) to city property values is a task 
-			that has been glossed over by traditional metrics that often average values 
-			over large
-			areas - such as a neighborhoods, counties, or zipcodes. There's probably a 
-			good reason for this: to understand small-scale influences, 
-			a bunch of additional details  might need to be factored into the standard 
-			calculations, and presumably, this was
-			traditionally unfeasible. </p>
- 
-		<p>	Fortunately, we now have 21st-century computing power at our fingertips, 
-		and we can use machine learning to sort out 
-			differences between two properties that might differ in location by only a 
-			two minute walk. 
-		</p>
-
-		<A NAME="prediction"></A>
-
-		<h3>Try it out:</h3>
-
-		<p>	As a test case, we'll start with properties in New York City. Find the 
-		value of a property by entering
-			an address in the search field below. If the search field fails to autocomplete
-			you query or if a red balloon fails to load in the map below, please refresh the page
-			by pressing the search button below. 
-		</p>
-
-		<div class="container2">
-		<div class="jumbotron jumbotron-body">
-			<div class="col-lg-10 col-md-10 col-sm-12">
-
-				<form id='userinfoform_lulu2' method='post' action='nycProperty_intro.html#prediction' >
-
-				<button type="submit" class="btn btn-primary btn-md">Search</button>
-				<span class="input-group-btn">
-					<input id="place-input" type="text" class="form-control" name='address' placeholder="Enter an NYC Address">
-					</input>
-				</span>
-			</div>
-			</form>
-		</div>
-		</div>
-
-		<div id="mapAuto"></div>
-
-
-
-<!-- seam to nead async defer --!>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
-  async defer ></script> 
-
-
-	
-		<div id="mapMultLoc">If a google map fails to load here, please refresh the page.</div>
-		
+ 	
+ 	
 <script>
 function initMap() {
 
@@ -226,6 +155,85 @@ function initMap() {
 } /*** end initMap2() ***/
 	
 </script>
+
+ 	
+   		<!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> --!>
+   		<h1></h1>
+		<h3> Location, location, location! </h3>
+			We've all heard it.
+	
+			Good schools in the suburbs will lift the value of every home in that school district,
+			but the same is not true in cities,
+			where the significance of location often acts on smaller scales. 
+	 
+			A subway line, for example, confers 
+			significantly more value to an apartment four blocks away than to one that 
+			is fifteen. 
+   
+			If the same subway line is above ground however, 
+			it could depreciate the value of apartments (Oh, the noise! Shut those windows 
+			after showering) that are only steps away. </p>
+		
+		
+		<p>	Sorting out all of the local location-based contributions (proximity to parks, 
+		restaurants, shops, etc.) to city property values is a task 
+			that has been glossed over by traditional metrics that often average values 
+			over large
+			areas - such as a neighborhoods, counties, or zipcodes. There's probably a 
+			good reason for this: to understand small-scale influences, 
+			a bunch of additional details  might need to be factored into the standard 
+			calculations, and presumably, this was
+			traditionally unfeasible. </p>
+ 
+		<p>	Fortunately, we now have 21st-century computing power at our fingertips, 
+		and we can use machine learning to sort out 
+			differences between two properties that might differ in location by only a 
+			two minute walk. 
+		</p>
+
+		<A NAME="prediction"></A>
+
+		<h3>Try it out:</h3>
+
+		<p>	As a test case, we'll start with properties in New York City. Find the 
+		value of a property by entering
+			an address in the search field below. If the search field fails to autocomplete
+			you query or if a red balloon fails to load in the map below, please refresh the page. 
+		</p>
+
+		<div class="container2">
+		<div class="jumbotron jumbotron-body">
+			<div class="col-lg-10 col-md-10 col-sm-12">
+
+				<form id='userinfoform_lulu2' method='post' action='nycProperty_intro.html#prediction' >
+
+				<button type="submit" class="btn btn-primary btn-md">Search</button>
+				<span class="input-group-btn">
+					<input id="place-input" type="text" class="form-control" name='address' placeholder="Enter an NYC Address">
+					</input>
+				</span>
+			</div>
+			</form>
+		</div>
+		</div>
+
+		<div id="mapAuto"></div>
+
+		<div class="container2">
+			<div class="jumbotron2">
+					<h4> {{respond}} </h4>
+			</div>
+		</div>
+
+<!-- seam to nead async defer --!>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
+  async defer ></script> 
+
+
+	
+		<div id="mapMultLoc">If a google map fails to load here, please refresh the page by pressing the search button
+		in the search box above.</div>
+		
 
 		<h3> Better than Zillow?</h3>
 			<p> Not quite - but soon! Zillow has been at it for a decade, and their 

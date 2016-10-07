@@ -16,7 +16,12 @@
 	margin-left: 20px;
 	margin-bottom: 20px;
 }
-
+#mapMultLoc2 {
+	float: center;
+	margin-top: 13px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
 .bg {
   position: fixed;
   width: 100%;
@@ -42,6 +47,7 @@
   margin-bottom: 20px;
 }
 
+
 .jumbotron-body {
   background-image: url('static/park_slope.jpg'); 
   background-position: center center;
@@ -54,9 +60,17 @@
 }
 
 .container2{
-	display: flex;
 	justify-content: center;
 	align-items: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+} 
+
+.container3{
+	justify-content: center;
+	align-items: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
 } 
 
 .containerR{
@@ -64,8 +78,8 @@
 	align-items: right;
   margin-bottom: 30px;
   margin-top: 20px;
-  padding-left: 30px;	
-    padding-right: 20px;	
+  padding-left: 50px;	
+    padding-right: 50px;	
 
 } 
 

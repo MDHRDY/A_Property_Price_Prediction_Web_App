@@ -9,8 +9,8 @@ from bokeh.embed import components
 from bokeh.plotting import figure, output_file, show
 from bokeh.io import output_notebook, show
 from bokeh.charts import Scatter
-#from IPython.display import HTML
-
+from bokeh.models import (
+  GMapPlot, GMapOptions, ColumnDataSource, Circle, DataRange1d, PanTool, WheelZoomTool, BoxSelectTool )
 
 with open("df_2013_14_nd_15.dill", "r") as f:
     df = dill.load(f)    
@@ -45,7 +45,27 @@ google_api = "https://maps.googleapis.com/maps/api/geocode/json?address="
 key = 'NY&key=AIzaSyA8VBsATdqaQZforSrLl88rW2Kr-fYGHjo'
 
 
-
+def get_assessed_values():
+	map_options = GMapOptions(lat=40.699389, lng=-73.955454, map_type="roadmap", zoom=10)
+	
+	plot = GMapPlot(
+    x_range=DataRange1d(), y_range=DataRange1d(), map_options=map_options, title="NYC" )
+	
+	df = pd.read_csv('Over60percent_apprec.csv', low_memory=False)
+	df2 = pd.read_csv('Loss_of_Over60percent.csv', low_memory=False)
+	
+	source = ColumnDataSource(
+    	data = dict(lat = np.array(df.Lat), lon = np.array(df.Long),) )
+	source2 = ColumnDataSource(
+    	data = dict(lat = np.array(df2.Lat), lon = np.array(df2.Long),) )	
+	circle = Circle(x="lon", y="lat", size=2, fill_color="red", fill_alpha=0.8, line_color=None)
+	plot.add_glyph(source, circle)
+	circle2 = Circle(x="lon", y="lat", size=2, fill_color="blue", fill_alpha=0.8, line_color=None)
+	plot.add_glyph(source2, circle2)
+	
+	plot.add_tools(PanTool(), WheelZoomTool())
+	script_L, div_L = components(plot)
+	return script_L, div_L
 
 app = Flask(__name__, static_url_path = "", static_folder = "")
 app.vars={}
@@ -61,14 +81,15 @@ def generate_graph():
     if request.method == 'GET':
     	map_lat = 40.83 #return_coord[0]
     	map_long = -73.99 #return_coord[1]
-    	
-    	return render_template('nycProperty_intro2.html', num = nquestions, center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1) #, map_lat_center = map_lat, map_long_center = map_long)
+    	script_L, div_L = get_assessed_values()
+    	return render_template('nycProperty_intro.html', num = nquestions, center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, script_gmap=script_L, div_gmap=div_L) #, map_lat_center = map_lat, map_long_center = map_long)
     else:
     	app.vars['name'] = request.form['address']
 
     	if app.vars['name'] == '':
     			map_lat = 40.83 #return_coord[0]
     			map_long = -73.99 #return_coord[1]
+    			script_L, div_L = get_assessed_values()
     			return render_template('nycProperty_intro.html', num = nquestions, center_lat= map_lat, center_long=map_long,zoom=14, d=dict, length=1) #, map_lat_center = map_lat, map_long_center = map_long)
 
     		#return render_template('nycProperty_auto.html', num = '') #,map_lat_center = 40.8383885679, map_long_center = -73.9027923602)
@@ -132,7 +153,10 @@ def generate_graph():
     			    sample = np.array([price_lat_long[0],price_lat_long[1],0,0,1,0,0,1,0,0])
 				#model.predict(sample.reshape(1,-1))[0]
     			predicted_value = int(price_model.predict(sample.reshape(1,-1))[0])
-    			return render_template('nycProperty_pred.html', num = master_coord, center_lat= master_coord[0], center_long= master_coord[1], zoom=14, d=d2, length=8, LatLong=address_details, price_prediction=predicted_value)#, borough=borough) #, map_lat_center = map_lat, map_long_center = map_long)
+    			
+    			#script_L, div_L = get_assessed_values()
+
+    			return render_template('nycProperty_pred.html', num = master_coord, center_lat= master_coord[0], center_long= master_coord[1], zoom=14, d=d2, length=8, LatLong=address_details, price_prediction=predicted_value)#, script_gmap=script_L, div_gmap=div_L)#, borough=borough) #, map_lat_center = map_lat, map_long_center = map_long)
     			
     		except:
     			respond_w ="Oops! Couldn't find that address, or encountered an unknown problem. Please use the autocomplete feature and confirm that the address is located within New York City."
@@ -141,7 +165,7 @@ def generate_graph():
     			dict = [[40.715, -74.006,'Enter an address in the search bar above to obtain details.', 2015, 0],[0,1,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
     			map_lat = 40.83 #return_coord[0]
     			map_long = -73.99 #return_coord[1]    			
-    			return render_template('nycProperty_except.html', num = nquestions, center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, respond=respond_w)
+    			return render_template('nycProperty_except.html', num = nquestions, center_lat= map_lat, center_long=map_long, zoom=14, d=dict, length=1, respond=respond_w)
 
 if __name__ == "__main__":
     app.run()
