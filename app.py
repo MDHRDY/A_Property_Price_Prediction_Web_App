@@ -58,6 +58,7 @@ def get_assessed_values():
 app = Flask(__name__, static_url_path = "", static_folder = "")
 app.vars={}
 
+@app.route('/graph', methods=['GET','POST'])
 @app.route('/', methods=['GET','POST'])
 @app.route('/nycProperty.html',methods=['GET','POST'])  #nycProperty_auto.html
 @app.route('/nycProperty_intro.html',methods=['GET','POST'])  #nycProperty_auto.html
@@ -137,10 +138,6 @@ def generate_graph():
     			else:
     			    sample = np.array([price_lat_long[0],price_lat_long[1],0,0,1,0,0,1,0,0])
     			predicted_value = int(price_model.predict(sample.reshape(1,-1))[0])
-    			#return render_template('nycProperty_pred.html', num = master_coord, 
-    			#		center_lat= master_coord[0], center_long= master_coord[1], zoom=14, 
-    			#		d=d2, length=8, LatLong=address_details, 
-    			#		price_prediction=predicted_value)
     			return render_template('nycProperty_pred2.html', num = master_coord, 
     				center_lat= master_coord[0], center_long=master_coord[1],zoom=14, 
     				d=d2, length=8, LatLong=address_details, price_prediction=predicted_value,
