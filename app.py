@@ -74,14 +74,14 @@ def generate_graph():
     if request.method == 'GET':
     	return render_template('nycProperty_intro.html', num = locations, 
     				center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, 
-    				script_gmap=script_L, div_gmap=div_L) 
+    				script=script_L, div=div_L) 
     else:
     	app.vars['name'] = request.form['address']
 
     	if app.vars['name'] == '':
     			return render_template('nycProperty_intro.html', num = locations, 
     				center_lat= map_lat, center_long=map_long,zoom=13, d=dict, length=1, 
-    				script_gmap=script_L, div_gmap=div_L)
+    				script=script_L, div=div_L)
     	else:
     		try:
     			full_address = app.vars['name'].split(',')

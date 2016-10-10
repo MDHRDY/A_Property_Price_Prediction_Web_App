@@ -96,7 +96,7 @@
 
 <!-- seam to nead async defer --!>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
-async ></script> 
+async defer ></script> 
 <!--></script> --!>
 
 
@@ -640,8 +640,8 @@ function initMap() {
 
 </div>			
 		
-			{{ script_gmap | safe }}
-			{{ div_gmap | safe }}
+			{{ script | safe }}
+			{{ div | safe }}
 			
 			<p>If red and blue points turn gray upon zooming, simply pan slighty to the side to 
 			regain color.</p>
