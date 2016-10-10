@@ -31,47 +31,46 @@
  	
    		<!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> --!>
    		<h1></h1>
-		<h3> Location, location, location! </h3>
-			We've all heard it.
+<h3> Location, location, location </h3>
+			We've all heard it, but there is some often-unexplored nuance to this dictum.
 	
-			Good schools in the suburbs will lift the value of every home in that school district,
-			but the same is not true in cities,
-			where the significance of location often acts on smaller scales. 
+			In the suburbs, good schools will lift the value of every home in a school district,
+			but in cities,
+			location often acts on smaller scales. 
 	 
 			A subway line, for example, confers 
 			significantly more value to an apartment four blocks away than to one that 
 			is fifteen. 
    
-			If the same subway line is above ground however, 
-			it could depreciate the value of apartments (Oh, the noise! Shut those windows 
-			after showering) that are only steps away. </p>
+			If the same subway line were above ground, however, 
+			it could depreciate the value of nearby apartments (Oh, the noise! Shut those curtains . . . ) 
+			that are only steps away. </p>
 		
 		
-		<p>	Sorting out all of the local location-based contributions (proximity to parks, 
-		restaurants, shops, etc.) to city property values is a task 
-			that has been glossed over by traditional metrics that often average values 
+		<p>	The significance of such  hyper-local effects  (proximity to parks, 
+		restaurants, shops, etc.) 
+			has been glossed over by traditional metrics that often average values 
 			over large
-			areas - such as a neighborhoods, counties, or zipcodes. There's probably a 
-			good reason for this: to understand small-scale influences, 
-			a bunch of additional details  might need to be factored into the standard 
-			calculations, and presumably, this was
-			traditionally unfeasible. </p>
+			areas such as a neighborhoods, counties, or ZIP Codes. To understand such small-scale influences, 
+			many additional details  might need to be factored into the standard 
+			calculations, and, presumably, this was
+			unfeasible in the past. </p>
  
-		<p>	Fortunately, we now have 21st-century computing power at our fingertips, 
-		and we can use machine learning to sort out 
-			differences between two properties that might differ in location by only a 
-			two minute walk. 
+		<p>	Using machine learning, however, we can take many more variables into account and begin to get a more
+		 granular view of property values in dense, urban areas, where two properties that are only a 
+		 five-minute walk apart might have significantly different values. The machine-learning app below translates 
+		 GPS coordinates, sales dates and property sales into a property price prediction tool.
 		</p>
 
 		<A NAME="prediction"></A>
 
 		<h3>Try it out:</h3>
 
-		<p>	As a test case, we'll start with properties in New York City. Find the 
-		value of a property by entering
-			an address in the search field below. If the search field fails to autocomplete
+		<p>	As a test case, we'll start with properties in New York City. Find the price prediction for
+		 a property by entering
+			an address in the search field below. (If the search field fails to autocomplete
 			you query or if a red balloon fails to load in the map below, please refresh the page
-			by pressing the search button below. 
+			by pressing the search button.) 
 		</p>
 
 		<div class="container2">
@@ -241,28 +240,21 @@ function initMap() {
 			somehow never performs quite as 
 			well. In fact, Zillow reports their most accurate NYC prediction is in Manhattan, where 
 			the prediction is within 20% 
-			of the actual market value 76% of the time. There is an
-			 error in reporting here, as this is akin to claiming that
-			 in throwing ten darts 
-			at a dart board on ten separate occasions, the overall average could be eight bullseyes out of ten throws, 
-			even though on each individual occasion, the bullseye was never hit as many as eight times out of 
-			ten!
-			</p>
+			of the actual market value only 76% of the time. 			</p>
 			<p>The 
 			Zestimator consistently makes predictions
 			for less than 90% of the properties listed on Zillow's own website
 			(which contains a fraction of the total number of properties), 
-			and these absent predictions for the properties on zillow's site are not included in their 
-			accuracy calculation. It seams they are
-			cherry picking! </p>
+			and these absent predictions for the properties on Zillow's site are not included in their 
+			accuracy calculation.  A disinterested observer might be forgiven for suspecting a certain selectivity in reporting.</p>
 			
 			<p>It's understandable that Zillow wants to present their model in the 
 			rosiest light. And they have! For example, if the 
 			Zestimator is quite bad for a particular region, as it is for the borough of 
 			Staten Island
-			(see Richmond County under their New York reportings), Zillow has conveniently
+			(see Richmond County under their New York reportings), Zillow has 
 			 decided to not report the accuracy 
-			of their model in this borough! 
+			of their model in this borough.
 			</p>
 			<p>In accounting for these details, a more plausible assessment of Zillow's
 			 Zestimator is that it predicts a value 
@@ -271,25 +263,24 @@ function initMap() {
 			What's the accuracy of the model on this site? At the moment it's within 
 			20% of the actual sales price 50% of the time. There's definitely room for 
 			 improvement, but this prediction is actually 
-			 quite good considering that it currently only accounts for a sales' location and
+			 quite good considering that it currently only accounts for a sale’s location and
 			sales date. 
-			These two features can account for 76% of the variation in sales prices for 1 
-			to 3 unit residential properties
+			These two features can account for 76% of the variation in sales prices for one- 
+			to  three-unit residential properties
 			in New York City, and presumably additional features 
 			( such as square footage or the type of 
-			property, like a coop, condo, or brownstone), will yield even better results.</p>
-			
+			property, like a coop, condo, or brownstone), will yield even better results.</p>		
 			
 		<h3>Preliminary Analysis, Methods</h3>
 			<p>New York City's Department of Finance tracks the sale of every property in 
 			each of the five boroughs, and the 
 			 Department of Planning has GPS coordinates for each city parcel; all of this 
 			 data is freely available. Merging these datasets results in a wealth of 
-			 information to work with - 
+			 information, 
 			 including over 1.2 million property sales. </p>
 			 
 			 <p>Visualizing data is often a good place to start, so let's begin with a
-			  heatmap of last year's sales numbers. </p>
+			  heatmap displaying the locations of last year’s property sales. </p>
 			 
 			 
 			<div class="container3">
@@ -304,11 +295,11 @@ function initMap() {
 			 Brooklyn and Queens. 
 			 Given the vertical density of Manhattan, a high ratio of sales to area is 
 			 expected, but the distribution of 
-			 sales in other NYC regions is nonetheless interesting. Perhaps by inspecting 
+			 sales in other NYC regions is nonetheless interesting. By inspecting 
 			 changes in sales numbers in each borough 
 			 over the last decade, along with changes in the median sales price, we can 
 			 gain a better picture of what's happening 
-			 in each of the boroughs and the overall city. 
+			 in each of the boroughs and the city as a whole. 
 			 </p>
 			 
 
@@ -604,7 +595,7 @@ function initMap() {
  
  <div class="container">
  <div class="row">
-			<P>From the links above, we see the number of transactions 
+			<p>From the links above, we see the number of transactions 
 			in Staten Island and the Bronx is indeed lower than the other boroughs, 
 			corroborating the heatmap. The number of sales transactions per year in each 
 			of the five boroughs is still lower than it was a decade ago, though all boroughs 
@@ -612,7 +603,7 @@ function initMap() {
 			sales numbers since 2010, from a low of a 24%-increase in Queens to a high of a 
 			44%-increase in Manhattan. </p> 
 			<p> Though the volume in sales has not yet matched volume from a decade ago, the
-			 median sales price of 1 - 3 unit residential properties has more than recovered
+			 median sales price of one- to three-unit residential properties has more than recovered
 			  in Manhattan and Brooklyn, 
 			where property values are now at all time highs. Queens, Staten Island and the 
 			Bronx however, are still depressed. </p>
@@ -621,9 +612,9 @@ function initMap() {
    		<p>These summary statistics provide a cursory glance of NYC property trends, but 
    		we'd also like to see changes over time
    		currently happening inside each borough. 
-   		New York City's Department of Finance assesses the value of each nyc property 
+   		New York City's Department of Finance assesses the value of each NYC property 
    		on a yearly basis for purposes of taxation, and we can look at changes in assessed values to 
-   		develop an additional picture.</p>
+   		add an additional dimension.</p>
 
 		<p> The dataset below highlights properties that have depreciated in value by more than 
 		60% over the last six years (blue points) or appreciated in value by more than 60% 
@@ -635,9 +626,6 @@ function initMap() {
  			<!--<div class="row">
 			<div class="container2">
  			<div class="row">--!>
- 			
-		
-		
 		 
 			<div class="container4"> <!--container4">--!>
  			<div class="row">
@@ -660,18 +648,18 @@ function initMap() {
 			</div>
 			</div>--!>
 		<p> The figure also points to more interesting changes occurring in the outer boroughs, where 
-		properties in close proximity seam to be moving in opposite directions. Why would some properties
-		depreciate in value by more than 60% while other properties on the same city block are simultaneously appreciate
-		in value by more than 60%? It's possible relying on assessed values determined by NYC's
-		department of finance is a mistake! Another possibility is that since the non-Manhattan boroughs have been 
+		the prices of properties in close proximity seem to be moving in opposite directions. Why would some properties
+		depreciate in value by more than 60% while other properties on the same city block simultaneously appreciate
+		in value by more than 60%? It's possible that relying on assessed values determined by NYC's
+		Department of Finance is a mistake, since . . . . Another possibility is that since the outer boroughs have been 
 		slower to recover, the figure highlights a type of market inflection point: sales are picking up
 		in depressed 
-		neighborhoods that have bottomed out and values are now rising. If we could determine this hypothesis is true, 
-		than neighborhoods with a higher ratio of blue points to red points (such as the Rockaways and beachfront
+		neighborhoods that have bottomed out and values are now rising. If this hypothesis is true, 
+		then neighborhoods with a higher ratio of blue points to red points (such as the Rockaways and beachfront
 		property along Staten Island and Brooklyn) might provide interesting investment opportunities or
 		bargains for home buyers.</p>
 		
-		<p>A better route for additional analysis would avoid making arbitrary cuttoffs (such as observing only 
+		<p>An even better route for additional analysis would avoid making arbitrary cutoffs (such as observing only 
 		properties that have increased or decreased by a certain percentage) and instead build a predictive
 		model with all of the data at hand. </p>
 		<p> With a machine learning algorithm, we can obtain a prediction for every property in the city, 
@@ -680,7 +668,7 @@ function initMap() {
 		sales.  
 		<p>Future directions: the goal is to incorporate a few additional features and further develop a model that clearly 
 		out-performs Zillow's Zestimator. The performance of this model can be better benchmarked against Zillow's by
-		tracking new sales and comparing new sales prices to each model's prediction. Additionally, more attention will focus on providing users with additional tools, 
+		tracking new sales and comparing new sales prices to each model's prediction. Additionally, users will be provided with additional tools, 
 		such as query-based, realtime real estate listings. 
 		</p>
 		
