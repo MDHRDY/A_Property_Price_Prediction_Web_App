@@ -47,6 +47,11 @@
   margin-bottom: 20px;
 }
 
+.jumbotron3 {
+  margin-bottom: 0px;
+  height: 350px;
+  color: white;
+}
 
 .jumbotron-body {
   background-image: url('static/park_slope.jpg'); 
@@ -70,8 +75,8 @@
 	text-align:center;
 	justify-content: center;
 	align-items: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 } 
 
 .container3{
