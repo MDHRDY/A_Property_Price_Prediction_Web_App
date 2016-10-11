@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>--!>
+	<!-- If IE use the latest rendering engine -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Set the page to the width of the device and set the zoon level -->
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title>City Property</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="style.css" rel="stylesheet">
+
+<!--<link rel=stylesheet type=text/css href=style_tckr.css>--!>
+
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.0.min.css" type="text/css"/>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.0.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+<div class="container">
+<div class="row">
+ 	<h3> Properties that appreciated (red) or depreciated (blue) by more than 60% in the last six years</h3>
+
+
+		<p>Note: if the colors turn gray upon using the 'Wheel Zoom' tool, simply pan slightly to the side 
+		to regain red and blue points. </p>
+		
+		<p>If the figure below does not 
+		load: <a href="/graph"  class="btn btn-primary btn-sm" role="button">refresh</a></p>
+
+		<p>To go back: <a href="/"  class="btn btn-primary btn-sm" role="button">return</a>
+
+
+
+	{{ script | safe }}
+	{{ div | safe }}
+ 
+</div>
+</div>
+
+<div class="container2">
+	<div class="row">
+	</div>
+</div>
+
+</body>
+</html>
