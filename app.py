@@ -183,6 +183,16 @@ def graph():
 	return render_template('graph.html', script=script, div=div)
 
 
+@app.route('/heat_map', methods=['GET','POST'])
+@app.route('/heat_map.html', methods=['GET','POST'])
+def heat_map():
+    if request.method == 'GET':
+    	map_lat = 40.83
+    	map_long = -73.99 
+    	return render_template('heat_map.html')  
+    else:
+    	return render_template('heat_map.html') 
+
 if __name__ == "__main__":
     app.run()
     

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title>City Property</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+ 
+ <div class="container">
+ <div class="row">
+		
+  
+  	<h3> Distribution of all Property Sales in NYC last year</h3>
+<br></br>
+		<p> <a href="https://github.com/mourner/simpleheat"  class="btn btn-primary btn-sm" role="button">GitHub</a>  A small 
+		JavaScript library powers this figure, which your browser will most likely block unless the blank in the right
+		 side of the url search box is accepted.</p>
+		<p><a href="/heat_map"  class="btn btn-primary btn-sm" role="button">refresh</a> if the figure does not load properly</p>
+
+		<p><a href="/"  class="btn btn-primary btn-sm" role="button">return</a> to go back to the previous page </p>
+
+  
+</div>
+</div>
+   
+ 
+   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+   <script src="http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script> 
+   <script src="https://d3js.org/d3.v4.min.js"></script> 
+ 
+     <div id="map" style="width: 600px; height: 450px"></div> 
+
+ 
+   <script>
+        var map = L.map('map').setView([40.705, -74.006], 10);
+        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+        }).addTo(map);
+        
+        d3.csv('static/all_twenty15_sales.csv', function(error, dataset) {           
+          dataset.forEach(function(d) {                          
+            d.lat = +d.lat;                                     
+            d.lon = +d.lon;                                    
+            d.value = +d.value; 
+            });                                                      
+        	
+       	 var heat = L.heatLayer(dataset,{
+            radius: 5,
+            blur: 5, 
+            maxZoom: 17,
+        	}).addTo(map);
+        });                                                        
+   </script>      
+ 
+
+<div class="container">
+ <div class="row">
+ </div>
+</div>
+   
+</body>
+</html>        
