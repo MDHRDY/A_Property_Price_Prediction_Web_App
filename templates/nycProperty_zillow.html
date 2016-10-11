@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>--!>
+	<!-- If IE use the latest rendering engine -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Set the page to the width of the device and set the zoon level -->
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title>City Property</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+
+
+
+<body> 
+
+  <div class="container">
+  <div class="row">
+		<div class="text-center">
+			<h1> Zillow's Accuracy <h1>
+  		</div>
+  </div>
+  </div>
+  <br></br>
+  
+ <div class="container">
+ <div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<p>
+			
+			Zillow reports the Zestimate predicts the price of a property in 
+			New York City to within 20% of the actual market value 80.7% of the time 
+			 <a href="http://www.zillow.com/zestimate/"  class="btn-link" role="button"> (see here).</a></p>
+
+			
+			
+			
+			
+			<p>			
+			When looking at the performance of individual boroughs however, the Zestimater 
+			never performs quite as 
+			well. Their most accurate NYC prediction is in Manhattan, where 
+			the prediction is within 20% 
+			of the actual market value 79.8% of the time (this is still quite good). Values from the chart below can be 
+			found on Zillow's website <a href="http://www.zillow.com/howto/DataCoverageZestimateAccuracyNY.htm"  class="btn-link" role="button">here.</a></p>
+			
+			
+			
+			</p>
+		
+<br></br>
+
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<!-- <td colspan="6" class="text-center"></td>--!>
+				</tr>
+			</thead>
+			<tbody>
+				  <tr>
+				  <!-- You can adjust the width of table columns as well -->
+				  <th class="col-md-2"></td>
+ 
+				  <!-- Use text alignment like text-center or text-right -->
+
+				  <th class="text-center">County Name</td>
+				  <th class="text-center">Zestimate Accuracy (Max = 4)</td>
+				  <th class="text-center">Homes on Zillow </td>
+				  <th class="text-center">Homes With Zestimate</td>
+				  <th class="text-center">Within 20% of Sale Price</td>
+				  </tr>
+	  
+					<tr>
+					<td>Brooklyn</td>
+					<td>Kings</td>
+					<td>2</td>
+					<td>460.4K</td>
+					<td>383.1K</td>
+					<td>73.5%</td>
+					</tr>
+					<tr>
+					<td>Bronx</td>
+					<td>Bronx</td>
+					<td>2</td>
+					<td>134.7K</td>
+					<td>118.7K</td>
+					<td>79.8%</td>
+					</tr>
+					<tr>
+					<td>Manhattan</td>
+					<td>New York</td>
+					<td>2</td>
+					<td>442.6K</td>
+					<td>362.2K</td>
+					<td>76.8%</td>
+					</tr>
+					<tr>
+					<td>Queens</td>
+					<td>Queens</td>
+					<td>2</td>
+					<td>492.4K</td>
+					<td>454.1K</td>
+					<td>74.4%</td>
+					</tr>
+					<tr>
+					<td>Staten Island</td>
+					<td>Richmond</td>
+					<td>1</td>
+					<td>134.1K</td>
+					<td>124.1K</td>
+					<td>--</td>
+					</tr>
+			     		</tbody>
+   		 </table>		
+<br></br>
+					<p>Zillow has a total of 1.6 million listings in New York City, but 20%
+					of these properties do not have Zestimates or the Zestimate has not been 
+					reported because of poor performance (like Staten Island), and these absent predictions are not included in Zillow's 
+			displayed accuracy calculations. If they were, the Zestimate would predict to within 20% 
+			of the actual market value in New York City roughly 66% of the time.</p>
+			
+			<p>The total number of residential units in New York City is actually significantly larger than Zillow's total number of listings. 
+			A 2014 study <a href="http://www.nycrgb.org/downloads/research/pdf_reports/16HSR.pdf"  class="btn-link" role="button">(see here)</a>, 
+			found in excess of 3.4 million properties. If we account for these and assume Zillow's stated accuracies to be valid, <b>the zestimate
+			can predict to within 20% of the the actual market value for less than a third of the properties </b>in New York City. </p>
+			
+			<p>Though a disinterested observer might be forgiven for suspecting a certain selectivity in reporting, Zillow's predictions,
+			for the fraction of properties with displayed Zestimates, are quite good. This sets a high barrier for entry, and perhaps that is why
+			Zillow's Zestimate has no real competition. 
+			</p>
+			
+			<p>One advantage of the model on this site is that it will currently give a prediction for any residential unit in New York City. If the model's innaccurate
+			predictions were removed - like Zillow, the accuracy score would indeed go up!
+			<br></br>
+		<p><a href="/"  class="btn btn-primary btn-md" role="button">return to previous page</a> </p>
+		
+		
+		
+</div>
+</div>
+
+</div>	
+
+
+
+
+<div class="container2">
+<div class="row">
+</div>
+</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>        

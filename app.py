@@ -193,6 +193,15 @@ def heat_map():
     else:
     	return render_template('heat_map.html') 
 
+@app.route('/zillow', methods=['GET','POST'])
+@app.route('/zillow.html', methods=['GET','POST'])
+def zillow():
+    if request.method == 'GET':
+    	return render_template('nycProperty_zillow.html')  
+    else:
+    	return render_template('nycProperty_zillow.html') 
+
+
 if __name__ == "__main__":
     app.run()
     

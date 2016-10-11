@@ -58,7 +58,6 @@ def get_assessed_values():
 app = Flask(__name__, static_url_path = "", static_folder = "")
 app.vars={}
 
-@app.route('/graph', methods=['GET','POST'])
 @app.route('/', methods=['GET','POST'])
 @app.route('/nycProperty.html',methods=['GET','POST'])  #nycProperty_auto.html
 @app.route('/nycProperty_intro.html',methods=['GET','POST'])  #nycProperty_auto.html
@@ -72,16 +71,16 @@ def generate_graph():
     script_L, div_L = get_assessed_values()
 
     if request.method == 'GET':
-    	return render_template('nycProperty_intro.html', num = locations, 
-    				center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, 
-    				script_gmap=script_L, div_gmap=div_L) 
+    	return render_template('nycProperty_zillow.html') 
+
+
     else:
     	app.vars['name'] = request.form['address']
 
     	if app.vars['name'] == '':
     			return render_template('nycProperty_intro.html', num = locations, 
     				center_lat= map_lat, center_long=map_long,zoom=13, d=dict, length=1, 
-    				script_gmap=script_L, div_gmap=div_L)
+    				script=script_L, div=div_L)
     	else:
     		try:
     			full_address = app.vars['name'].split(',')
@@ -152,6 +151,47 @@ def generate_graph():
     				center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, 
     				respond=respond_w, script_gmap=script_L, div_gmap=div_L) 
 
+@app.route('/graph.html', methods=['GET','POST'])
+@app.route('/graph', methods=['GET','POST'])
+def graph():
+	map_options = GMapOptions(lat=40.699389, lng=-73.955454, map_type="roadmap", zoom=10)
+	
+	plot = GMapPlot(
+    x_range=DataRange1d(), y_range=DataRange1d(), map_options=map_options, title="NYC"
+	)
+	
+	df = pd.read_csv('Over60percent_apprec.csv', low_memory=False)
+	df2 = pd.read_csv('Loss_of_Over60percent.csv', low_memory=False)
+	source = ColumnDataSource(
+    	data = dict(
+        	lat = np.array(df.Lat),
+        	lon = np.array(df.Long),
+    	)
+	)
+	source2 = ColumnDataSource(
+    	data = dict(
+        	lat = np.array(df2.Lat),
+        	lon = np.array(df2.Long),
+    	)
+	)	
+	circle = Circle(x="lon", y="lat", size=2.5, fill_color="red", fill_alpha=0.8, line_color=None)
+	plot.add_glyph(source, circle)
+	circle2 = Circle(x="lon", y="lat", size=2.5, fill_color="blue", fill_alpha=0.8, line_color=None)
+	plot.add_glyph(source2, circle2)
+	plot.add_tools(PanTool(), WheelZoomTool())
+	script, div = components(plot)
+	return render_template('graph.html', script=script, div=div)
+
+
+@app.route('/heat_map', methods=['GET','POST'])
+@app.route('/heat_map.html', methods=['GET','POST'])
+def heat_map():
+    if request.method == 'GET':
+    	map_lat = 40.83
+    	map_long = -73.99 
+    	return render_template('heat_map.html')  
+    else:
+    	return render_template('heat_map.html') 
 
 if __name__ == "__main__":
     app.run()
