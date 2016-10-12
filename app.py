@@ -137,8 +137,8 @@ def generate_graph():
     			else:
     			    sample = np.array([price_lat_long[0],price_lat_long[1],0,0,1,0,0,1,0,0])
     			predicted_value = int(price_model.predict(sample.reshape(1,-1))[0])
-    			return render_template('nycProperty_pred2.html', num = master_coord, 
-    				center_lat= master_coord[0], center_long=master_coord[1],zoom=14, 
+    			return render_template('nycProperty_pred.html', num = master_coord, 
+    				center_lat= master_coord[0], center_long=master_coord[1],zoom=15, 
     				d=d2, length=8, LatLong=address_details, price_prediction=predicted_value,
     				script_gmap=script_L, div_gmap=div_L)
 
@@ -147,7 +147,7 @@ def generate_graph():
     			respond_w ="Oops! Couldn't find that address, or encountered an unknown \
     					 problem. Please use the autocomplete feature and confirm that \
     					 the address is located within New York City."
-    			return render_template('nycProperty_except2.html', num = locations, 
+    			return render_template('nycProperty_ex.html', num = locations, 
     				center_lat= map_lat, center_long=map_long, zoom=13, d=dict, length=1, 
     				respond=respond_w, script_gmap=script_L, div_gmap=div_L) 
 

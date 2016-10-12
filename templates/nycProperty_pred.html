@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>--!>
 	<!-- If IE use the latest rendering engine -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- Set the page to the width of the device and set the zoon level -->
@@ -12,20 +12,15 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="container">
-  <div class="row">
-	<div class="col-sm-12 jumbotron">
-		<div class="text-center">
-			<h1> City Property <h1>
-  		</div>
-	</div>
-  </div>
-  </div>
+<body> 
+ 
+  
  <div class="container">
  <div class="row">
- 
-   <script>
+		<p><a href="/"  class="btn btn-primary btn-xs" role="button">Return</a> to home page. </p>
+		
+		
+		   <script>
 function initMap() {
 
 	/*** for embedded map ***/
@@ -152,49 +147,26 @@ function initMap() {
  
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
   async defer ></script>
-  
- 	
-   		<!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> --!>
-   		<h1></h1>
-		<h3> Location, location, location! </h3>
-			We've all heard it.
-	
-			A good school district in the suburbs will lift the value of all homes in that district, but the rules differ in cities,
-			where the effect of location on property values acts on much smaller scales. 
-	 
-			For example, a subway line confers 
-			significantly more value to an apartment that is four blocks away than one that is fifteen. 
-   
-			If the same subway line is above ground however, 
-			it could depreciate the value of apartments (Oh, the noise! Shut those windows after showering.) that are only steps away. 
-		
-		<p></p>
-		
-		<p>	Sorting out all of the local location-based contributions (proximity to parks, restaurants, shops, etc.) to city property values is a task 
-			that has been glossed over by traditional metrics that often average values over large
-			areas - such as a neighborhoods, counties, or zipcodes. There's probably a good reason for this: to understand small-scale influences, 
-			a bunch of additional details  might need to be factored into the standard calculations, and presumably, this was
-			traditionally unfeasible. </p>
- 
-		<p>	Fortunately, we now have 21st-century computing power at our fingertips, and we can use machine learning to sort out 
-			differences between two properties that might differ in location by only a two minute walk. 
-		</p>
 
+
+
+		
 		<A NAME="prediction"></A>
 
 		<h3>Try it out:</h3>
-		<A NAME="prediction2"></A>
 
-		<p>	As a test case, we'll start with properties in New York City. Find the value of a property by entering
-			an address in the search field below.
-		<A NAME="prediction3"></A>
-
+		<p>	As a test case, we'll start with properties in New York City. Find the price prediction for
+		 a property by entering
+			an address in the search field below. (If the search field fails to autocomplete
+			your query or if a red balloon fails to load in the map below, please refresh the page
+			by pressing the search button.) 
+		</p>
 
 		<div class="container2">
 		<div class="jumbotron jumbotron-body">
 			<div class="col-lg-10 col-md-10 col-sm-12">
 
-				<form id='userinfoform_lulu2' method='post' action='nycProperty_auto.html#prediction' >
+				<form id='userinfoform_lulu2' method='post' action='nycProperty_intro.html#prediction' >
 
 				<button type="submit" class="btn btn-primary btn-md">Search</button>
 				<span class="input-group-btn">
@@ -206,7 +178,8 @@ function initMap() {
 		</div>
 		</div>
 
-<div id="mapAuto"></div>
+		<div id="mapAuto"></div>
+
 
 
 
@@ -217,10 +190,10 @@ function initMap() {
     <div class="row">
     </div>
     </div>
-		
-<div id="mapMultLoc"></div>
 
 
+	
+		<div id="mapMultLoc">If a google map fails to load here, please refresh the page.</div>
 
 <div>
 <h4>Results:</h4>
@@ -241,6 +214,7 @@ function initMap() {
 
 
 <h5>Predicted value for this location: ${{price_prediction}}</h5>
+<h5>Click on the balloons in the map to the right for recent sales</h5>
 
 	<h5><a href="#col_pred_Content" data-toggle="collapse">Recent Sales in this Location</a></h5>
 	
@@ -337,31 +311,101 @@ function initMap() {
 
 
 
-
-
-			<p>  Websites like Trulia or Zillow have aided buyers and investors by providing a free snapshot of current market listing prices 
-			and some traditional metrics (like median home value), but 
-			in order to make an informed decision about the value of a property and how it is expected to change over time, we'd want more information. </p>
-			<p>The 'location' maxim is tough to sort out in cities because it only holds on more granular levels. A good school 
-			district in the suburbs will lift the value of all homes in that district, which might spans a number of miles. 
-			In cities however, levers act on much smaller scales. A subway line, for example, will confer significantly more value to an 
-			apartment that is four blocks away than one that is fifteen. However, if the same subway line is above ground, 
-			it could depreciate the value of apartments 
-			that are only steps away. </p>
-			<p>Traditional calculations, like 'median sales price', operate on scales more comparable to the size of a school district rather than to the
-			distances that are meaningful in cities - like subway proximity. How will the distance to a nearby park or restaurant effect a property's value? </p>
-			<p>Enter City Property</p>
-			<p> By looking at changes in sales prices over time and simultaneously looking at changes over smaller
-			areas - on the scale of city blocks instead of traditional neighborhood or county lines, we can gain a much better sense of the value tied to
-			 a specific location and how that value is changing over time.</p>
-			 <h3>Case Study: New York City</h3>
-			<p>New York City's Department of Finance tracks the sale of every property in each of the five boroughs, and the 
+		<h3> Better than Zillow?</h3>
+			<p> Not quite - but soon! Zillow has been at it for a decade, and their 
+			'Zestimate' is the best freely-available, 
+			public-facing price estimator on the Internet. 
+			Upon initial inspection, the accuracy of their model appears quite impressive: 
+			the model predicts the value of an 
+			NYC property within 20% of the actual market value 80.7% of the time. In actuality, 
+			the accuracy is much lower;  <a href="/zillow.html"  class="btn-link" role="button"> see here for more details.</a> </p> 
+  </p>
+			
+			<!--
+			When looking at the performance of individual boroughs however, the Zestimater 
+			somehow never performs quite as 
+			well. In fact, Zillow reports their most accurate NYC prediction is in Manhattan, where 
+			the prediction is within 20% 
+			of the actual market value only 76% of the time. 			</p>
+			<p>The 
+			Zestimator consistently makes predictions
+			for less than 90% of the properties listed on Zillow's own website
+			(which contains a fraction of the total number of properties), 
+			and these absent predictions for the properties on Zillow's site are not included in their 
+			accuracy calculation.  A disinterested observer might be forgiven for suspecting a certain selectivity in reporting.</p>
+			
+			<p>It's understandable that Zillow wants to present their model in the 
+			rosiest light. And they have! For example, if the 
+			Zestimator is quite bad for a particular region, as it is for the borough of 
+			Staten Island
+			(see Richmond County under their New York reportings), Zillow has 
+			 decided to not report the accuracy 
+			of their model in this borough.
+			</p>
+			<p>In accounting for these details, a more plausible assessment of Zillow's
+			 Zestimator is that it predicts a value 
+			to within 20% of the actual market value of a property in New York City 
+			somewhere between 50% and 60% of the time.
+			
+			--!>
+			</p>
+			What's the accuracy of the model on this site? At the moment it's within 
+			20% of the actual sales price 50% of the time. There's definitely room for 
+			 improvement, but this prediction is actually 
+			 quite good considering that it currently only accounts for a sale’s location and
+			sales date. 
+			These two features can account for 76% of the variation in sales prices for one- 
+			to  three-unit residential properties
+			in New York City. The next step in the development of this app will be to fine-tune the algorithm
+			by incorporating additional features, such as square footage and the number of bedrooms.</p>		
+			
+		<h3>Preliminary Analysis, Methods</h3>
+			<p>New York City's Department of Finance tracks the sale of every property in 
+			each of the five boroughs, and the 
 			 Department of Planning has GPS coordinates for each city parcel; all of this 
-			 data has been made publicly available. Since 2003, NYC has logged over 1.2 million property sales.
+			 data is freely available. Merging these datasets results in a wealth of 
+			 information, 
+			 including over 1.2 million property sales. </p>
+			 
+			 <p>Visualizing data is often a good place to start, so let's begin with a
+			  heatmap displaying the locations of last year’s property sales. </p>
+			 
+			 
+			<!--  <div class="container3">
+ 			<div class="row">
+  			<img src="static/heat_var2.png"  class="img-responsive center-block" />
 
-			 <p> We'll begin by looking at the most recent property sales. Below is a heat map of all NYC properties sold in 2015. 
-			 Freely Available Traditional Metrics Fall Short</p>
- 
+			</div>
+			</div>  --!>
+			
+			
+				 
+			<div class="container4"> <!--container4">--!>
+ 			<div class="row">
+  			<img src="static/heat_var2.png"  class="img-responsive center-block"/>
+			 
+			<!-- For an interactive version of this figure, </p>--!>
+
+			<!--<a href="https://nycproperty.herokuapp.com/"  class="btn btn-primary btn-xs" role="button">Click Here</a>--!>
+			</div>
+			</div>
+
+			<p><a href="/heat_map.html"  class="btn btn-primary btn-xs" role="button">Here</a> is an interactive version of the heatmap. </p>
+			 <p>In the figure above, numerous sales were transacted in much of Manhattan 
+			 and in a number of areas in 
+			 Brooklyn and Queens. 
+			 Given the vertical density of Manhattan, a high ratio of sales to area is 
+			 expected, but the distribution of 
+			 sales in other NYC regions is nonetheless interesting. By inspecting 
+			 changes in the number of sales in each borough 
+			 over the last decade, along with changes in the median sales price, we can 
+			 gain a better picture of what's happening 
+			 in each of the boroughs and the city as a whole. 
+			 </p>
+			 
+
+
+
 
 	<div class="row">
 	<div class="col-md-11 col-lr-11 col-sm-11 col-xs-11">
@@ -369,16 +413,6 @@ function initMap() {
 	</div> <!-- end <div class="col-md-12"> -->
 	</div> <!-- end <div class="row"> -->
 
-
-
-			<P>From the heat map above, and from the tables in the links below, we can see that properties were sold throughout the whole of each of the
-			 five boroughs in 2015 and the volume of sales in each borough has been on a slowing upward trend since 2010, while the median property 
-			 value has continued to increase significantly. </p>
- 
-			 <p> By tying together the sales price of
-			 each property to its GPS coordinates, we can construct a simple preliminary model that predicts a property's value based upon its location. The following model
-			 is based upon a k-nearest neighbors machine learning algorithm. 
-			</p>
 
 
 <div class="container">
@@ -392,7 +426,7 @@ function initMap() {
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
-					 <td colspan="6" class="text-center">Median Sales Price By Borough (in thousands)</td>
+					 <td colspan="6" class="text-center">Median Sales Price (in thousands)</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -409,7 +443,7 @@ function initMap() {
 				  </tr>
 	  
 					<tr>
-					<td><a href='#'>2003</a></td>
+					<td>2003</td>
 					<td>406.8</td>
 					<td>277.0</td>
 					<td>328.3</td>
@@ -417,7 +451,7 @@ function initMap() {
 					<td>314.4</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2004</a></td>
+					<td>2004</td>
 					<td>495.0</td>
 					<td>325.0</td>
 					<td>385.0</td>
@@ -425,7 +459,7 @@ function initMap() {
 					<td>356.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2005</a></td>
+					<td>2005</td>
 					<td>611.5</td>
 					<td>381.0</td>
 					<td>469.4</td>
@@ -433,7 +467,7 @@ function initMap() {
 					<td>407.3</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2006</a></td>
+					<td>2006</td>
 					<td>630.8</td>
 					<td>450.0</td>
 					<td>550.0</td>
@@ -441,7 +475,7 @@ function initMap() {
 					<td>440.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2007</a></td>
+					<td>2007</td>
 					<td>650.0</td>
 					<td>460.0</td>
 					<td>565.0</td>
@@ -449,7 +483,7 @@ function initMap() {
 					<td>435.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2008</a></td>
+					<td>2008</td>
 					<td>590.0</td>
 					<td>390.0</td>
 					<td>530.0</td>
@@ -457,7 +491,7 @@ function initMap() {
 					<td>405.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2009</a></td>
+					<td>2009</td>
 					<td>500.0</td>
 					<td>340.0</td>
 					<td>460.0</td>
@@ -465,7 +499,7 @@ function initMap() {
 					<td>380.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2010</a></td>
+					<td>2010</td>
 					<td>450.0</td>
 					<td>375.0</td>
 					<td>500.0</td>
@@ -473,7 +507,7 @@ function initMap() {
 					<td>395.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2011</a></td>
+					<td>2011</td>
 					<td>557.0</td>
 					<td>350.0</td>
 					<td>465.2</td>
@@ -481,7 +515,7 @@ function initMap() {
 					<td>380.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2012</a></td>
+					<td>2012</td>
 					<td>629.0</td>
 					<td>347.0</td>
 					<td>499.0</td>
@@ -489,7 +523,7 @@ function initMap() {
 					<td>390.0</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2013</a></td>
+					<td>2013</td>
 					<td>635.0</td>
 					<td>355.0</td>
 					<td>517.0</td>
@@ -497,7 +531,7 @@ function initMap() {
 					<td>397.4</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2014</a></td>
+					<td>2014</td>
 					<td>699.0</td>
 					<td>375.0</td>
 					<td>580.0</td>
@@ -505,7 +539,7 @@ function initMap() {
 					<td>409.2</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2015</a></td>
+					<td>2015</td>
 					<td>765.0</td>
 					<td>390.0</td>
 					<td>670.0</td>
@@ -544,7 +578,7 @@ function initMap() {
 				  <th class="text-center">Staten Island</td>
 
 					<tr>
-					<td><a href='#'>2003</a></td>
+					<td>2003</td>
 					<td>22210</td>
 					<td>10664</td>
 					<td>33706</td>
@@ -552,7 +586,7 @@ function initMap() {
 					<td>12671</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2004</a></td>
+					<td>2004</td>
 					<td>25894</td>
 					<td>11807</td>
 					<td>35048</td>
@@ -560,7 +594,7 @@ function initMap() {
 					<td>12643</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2005</a></td>
+					<td>2005</td>
 					<td>26388</td>
 					<td>11805</td>
 					<td>34243</td>
@@ -568,7 +602,7 @@ function initMap() {
 					<td>11270</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2006</a></td>
+					<td>2006</td>
 					<td>26352</td>
 					<td>10695</td>
 					<td>32146</td>
@@ -576,7 +610,7 @@ function initMap() {
 					<td>9797</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2007</a></td>
+					<td>2007</td>
 					<td>28439</td>
 					<td>9269</td>
 					<td>28643</td>
@@ -584,7 +618,7 @@ function initMap() {
 					<td>8626</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2008</a></td>
+					<td>2008</td>
 					<td>25994</td>
 					<td>7057</td>
 					<td>23791</td>
@@ -592,7 +626,7 @@ function initMap() {
 					<td>7208</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2009</a></td>
+					<td>2009</td>
 					<td>19166</td>
 					<td>5243</td>
 					<td>19995</td>
@@ -600,7 +634,7 @@ function initMap() {
 					<td>6531</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2010</a></td>
+					<td>2010</td>
 					<td>17296</td>
 					<td>4755</td>
 					<td>19649</td>
@@ -608,7 +642,7 @@ function initMap() {
 					<td>6138</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2011</a></td>
+					<td>2011</td>
 					<td>21500</td>
 					<td>4963</td>
 					<td>20726</td>
@@ -616,7 +650,7 @@ function initMap() {
 					<td>4756</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2012</a></td>
+					<td>2012</td>
 					<td>26258</td>
 					<td>5151</td>
 					<td>23492</td>
@@ -624,7 +658,7 @@ function initMap() {
 					<td>6231</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2013</a></td>
+					<td>2013</td>
 					<td>26715</td>
 					<td>5932</td>
 					<td>24842</td>
@@ -632,7 +666,7 @@ function initMap() {
 					<td>7070</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2014</a></td>
+					<td>2014</td>
 					<td>24524</td>
 					<td>6208</td>
 					<td>25361</td>
@@ -640,7 +674,7 @@ function initMap() {
 					<td>7437</td>
 					</tr>
 					<tr>
-					<td><a href='#'>2015</a></td>
+					<td>2015</td>
 					<td>24989</td>
 					<td>6736</td>
 					<td>25362</td>
@@ -654,72 +688,106 @@ function initMap() {
 </div>
 </div>
 
-</div>
-
- </div>
-  <div class="container">
- <div class="row">
-
-		<p>	Sorting out all of the local location-based contributions to city property values (parks, restaurants, shops, etc.) is a task 
-			that has been glossed over by traditional metrics that often average values over large
-			areas - such as a neighborhoods, counties, or zipcodes. There's probably a good reason for this: to understand small-scale influences, 
-			a bunch of additional details  might need to be factored in to the standard calculations, and presumably, this was
-			traditionally unfeasible. </p>
+	<div class="row">
+	<div class="col-md-11 col-lr-11 col-sm-11 col-xs-11">
+		<p class="text-justify"></p>
+	</div> <!-- end <div class="col-md-12"> -->
+	</div> <!-- end <div class="row"> -->
  
-		<p>	Fortunately, we now have 21st-century computing power at our fingertips, and we can use machine learning to sort out 
-			differences between two properties that might differ in location by only a two minute walk. 
+ <div class="container">
+ <div class="row">
+			<p>From the links above, we see the number of transactions 
+			in Staten Island and the Bronx is indeed lower than the other boroughs, 
+			corroborating the heatmap. The number of sales transactions per year in each 
+			of the five boroughs is still lower than it was a decade ago, though all boroughs 
+			have increased
+			sales numbers since 2010, from a low of a 24%-increase in Queens to a high of a 
+			44%-increase in Manhattan. </p> 
+			<p> Though the volume in sales has not yet matched volume from a decade ago, the
+			 median sales price of one- to three-unit residential properties has more than recovered
+			  in Manhattan and Brooklyn, 
+			where property values are now at all time highs. Queens, Staten Island and the 
+			Bronx however, are still depressed. </p>
+			
+	
+   		<p>These summary statistics provide an overview of macro NYC property trends, but 
+   		we'd also like to investigate recent changes within each borough. 
+   		New York City's Department of Finance assesses the value of each NYC property 
+   		on a yearly basis for purposes of taxation, and we can look at changes in assessed values to 
+   		add an additional dimension.</p>
+
+		<p> The dataset below highlights properties that have depreciated in value by more than 
+		60% over the last six years (blue points) or appreciated in value by more than 60% 
+		over the same period (red points). The absence of blue points in Manhattan  
+		further supports a picture of a robust market where high values continue to push higher
+		(if the map fails to function properly, please refresh).</p>
+			
+			<div class="container">
+ 			<!--<div class="row">
+			<div class="container2">
+ 			<div class="row">--!>
+		 
+			<div class="container4"> <!--container4">--!>
+ 			<div class="row">
+  			<img src="static/assess_w_border.png"  class="img-responsive center-block"/>
+			<!--<a href="https://nycproperty.herokuapp.com/"  class="btn btn-primary btn-xs" role="button">Click Here</a>--!>
+			</div>
+				</div>
+
+			
+			
+			
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
+></script> 			
+			
+			
+			</div>
+			
+			<!--</div>
+			</div>
+			</div>--!>
+		<p><a href="/graph.html"  class="btn btn-primary btn-xs" role="button">Here</a> is an interactive version of this figure. </p>
+
+		<p> The figure also points to more interesting changes occurring in the outer boroughs, where 
+		the prices of properties in close proximity seem to be moving in opposite directions. Why would some properties
+		depreciate in value by more than 60% while other properties on the same city block simultaneously appreciate
+		in value by more than 60%? It's possible that relying on assessed values determined by NYC's
+		Department of Finance is a mistake, however they represent the most comprehensive inventory of property values. 
+		 Another possibility is that since the outer boroughs have been 
+		slower to recover, the figure highlights a type of market inflection point: sales are picking up
+		in depressed 
+		neighborhoods that have bottomed out and values are now rising. If this hypothesis is true, 
+		then neighborhoods with a higher ratio of blue points to red points (such as the Rockaways and beachfront
+		property along Staten Island and Brooklyn) might provide interesting investment opportunities or
+		bargains for home buyers.</p>
+		
+		<p>An even better route for additional analysis would avoid making arbitrary cutoffs (such as observing only 
+		properties that have increased or decreased by a certain percentage) and instead build a predictive
+		model with all of the data at hand. </p>
+		<p> With a machine learning algorithm, we can obtain a prediction for every property in the city, 
+		irrespective of whether that property has recently sold. The algorithm used here (k-NN) recognizes patterns  
+		through an instance-based learning process and outputs a property-value prediction based upon recent, nearby
+		sales.  
+		<p>Future directions: the goal is to clearly out-perform
+		 Zillow's Zestimator. The plan is to also benchmark performance against Zillow's by
+		tracking new sales and comparing new sales prices to each model's prediction. Additionally, users will be provided with more tools, 
+		such as query-based, realtime real estate listings. 
 		</p>
+		
+		<p> Thanks for taking time to check out this app. If you have any comments or suggestions, please don't hesitate
+		to <a href="http://michaeldavidhardy.com/contact"  class="btn-link" role="button"> contact me</a>; all thoughts are appreciated!</p> 
+
 
 </div>
 </div>
- 
- 
 
- 	<div id="map"></div> <!--style="width: 600px; height: 400px"></div> --!>
-   
-   
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script src="http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js" data-semver="4.0.0" data-require="d3@*"></script>
- 
-    <script>
-        var map = L.map('map').setView([40.705, -74.006], 10);
-        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-        L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors',
-            maxZoom: 18,
-        }).addTo(map);
-        d3.csv('static/all_twenty15_sales.csv', function(error, dataset) {           // NEW, lat_long.csv
-          dataset.forEach(function(d) {                             // NEW
-            d.lat = +d.lat;                                     // NEW
-            d.lon = +d.lon;                                     // NEW
-            d.value = +d.value; 
-            });                                                       // NEW
-        	var heat = L.heatLayer(dataset,{
-            	radius: 7.5,
-            	blur: 15, 
-            	maxZoom: 8,
-        	}).addTo(map);
-        });                                                         // NEW
-    </script>      
- 
-  <div class="container">
- <div class="row">
-<p>	Sorting out all of the local location-based contributions to city property values (parks, restaurants, shops, etc.) is a task 
-			that has been glossed over by traditional metrics that often average values over large
-			areas - such as a neighborhoods, counties, or zipcodes. There's probably a good reason for this: to understand small-scale influences, 
-			a bunch of additional details  might need to be factored in to the standard calculations, and presumably, this was
-			traditionally unfeasible. </p>
- 
-		<p>	Fortunately, we now have 21st-century computing power at our fingertips, and we can use machine learning to sort out 
-			differences between two properties that might differ in location by only a two minute walk. 
-		</p> 
+</div>	
+
+<div class="container2">
+<div class="row">
 </div>
 </div>
- 
 
- 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 

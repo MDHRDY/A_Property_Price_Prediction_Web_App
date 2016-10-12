@@ -17,27 +17,6 @@
 	margin-bottom: 20px;
 }
 
-
-#shrink_img {
-	flex: center;
-	height: 40vh;
-	width: 60%;
-	margin-top: 13px;
-	margin-left: 20px;
-	margin-bottom: 20px;
-}
-
-
-#logo { height: 250px; width: 400px; overflow: hidden; }
-
-imgZ {
-  display: block;
-  max-width:300px;
-  max-height:250px;
-  width: auto;
-  height: auto;
-}
-
 #mapMultLoc2 {
 	float: center;
 	margin-top: 13px;
@@ -97,8 +76,8 @@ imgZ {
 	text-align:center;
 	justify-content: center;
 	align-items: center;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 } 
 
 .container3{
