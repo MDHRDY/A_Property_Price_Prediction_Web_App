@@ -92,14 +92,6 @@
 
 		<div id="mapAuto"></div>
 
-
-
-<!-- seam to nead async defer
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
-async defer ></script> 
-</script> --!>
-
-
 	
 		<div id="mapMultLoc">If a google map fails to load here, please refresh the page.</div>
 
@@ -239,34 +231,7 @@ function initMap() {
 			NYC property within 20% of the actual market value 80.7% of the time. In actuality, 
 			the accuracy is much lower;  <a href="/zillow.html"  class="btn-link" role="button"> see here for more details.</a> </p> 
   </p>
-			
-			<!--
-			When looking at the performance of individual boroughs however, the Zestimater 
-			somehow never performs quite as 
-			well. In fact, Zillow reports their most accurate NYC prediction is in Manhattan, where 
-			the prediction is within 20% 
-			of the actual market value only 76% of the time. 			</p>
-			<p>The 
-			Zestimator consistently makes predictions
-			for less than 90% of the properties listed on Zillow's own website
-			(which contains a fraction of the total number of properties), 
-			and these absent predictions for the properties on Zillow's site are not included in their 
-			accuracy calculation.  A disinterested observer might be forgiven for suspecting a certain selectivity in reporting.</p>
-			
-			<p>It's understandable that Zillow wants to present their model in the 
-			rosiest light. And they have! For example, if the 
-			Zestimator is quite bad for a particular region, as it is for the borough of 
-			Staten Island
-			(see Richmond County under their New York reportings), Zillow has 
-			 decided to not report the accuracy 
-			of their model in this borough.
-			</p>
-			<p>In accounting for these details, a more plausible assessment of Zillow's
-			 Zestimator is that it predicts a value 
-			to within 20% of the actual market value of a property in New York City 
-			somewhere between 50% and 60% of the time.
-			
-			--!>
+
 			</p>
 			What's the accuracy of the model on this site? At the moment it's within 
 			20% of the actual sales price 50% of the time. There's definitely room for 
@@ -289,13 +254,7 @@ function initMap() {
 			 <p>Visualizing data is often a good place to start, so let's begin with a
 			  heatmap displaying the locations of last year’s property sales. </p>
 			 
-			 
-			<!--  <div class="container3">
- 			<div class="row">
-  			<img src="static/heat_var2.png"  class="img-responsive center-block" />
-
-			</div>
-			</div>  --!>
+		
 			
 			
 				 
@@ -303,9 +262,6 @@ function initMap() {
  			<div class="row">
   			<img src="static/heat_var2.png"  class="img-responsive center-block"/>
 			 
-			<!-- For an interactive version of this figure, </p>--!>
-
-			<!--<a href="https://nycproperty.herokuapp.com/"  class="btn btn-primary btn-xs" role="button">Click Here</a>--!>
 			</div>
 			</div>
 
@@ -653,10 +609,8 @@ function initMap() {
 			</div>
 				</div>
 
-			
-			
-			
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkuO8yMgbJ3RfHtCfUOT3aLHlhX3HkQsQ&libraries=places&callback=initMap"
+						
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{key2}}libraries=places&callback=initMap"
 ></script> 			
 			
 			
