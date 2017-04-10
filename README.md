@@ -13,5 +13,4 @@ https://mdh.herokuapp.com/
 It takes awhile for heroku to load the application into memory on their servers, so be
  patient if you click on the link (it's darn slow).
  
-The files here contain the front end and the back end for the site. The principal machine learning
-algorithms used thus far are k-neareset neighbors and k-means.
+The files here contain the front end and the back end for the site. 
