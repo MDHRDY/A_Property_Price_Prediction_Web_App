@@ -10,7 +10,9 @@ operates comparatively well against Zillow's.
 The app was deployed with heroku:
 https://mdh.herokuapp.com/
 
-It takes awhile for heroku to load the application into memory on their servers, so be
- patient if you click on the link (it's darn slow).
+Please check it out. 
  
-The files here contain the front end and the back end for the site. 
+The files here contain the front end and the back end for the site, along with a couple of ipynb files. 
+
+
+![A_Price_Prediction_Web_App](https://github.com/MDHRDY/A_Property_Price_Prediction_Web_App/blob/master/web_app_front.png)
