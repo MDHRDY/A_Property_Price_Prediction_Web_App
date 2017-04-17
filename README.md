@@ -16,3 +16,7 @@ The files here contain the front end and the back end for the site, along with a
 
 
 ![A_Price_Prediction_Web_App](https://github.com/MDHRDY/A_Property_Price_Prediction_Web_App/blob/master/web_app_front.png)
+
+![A_Price_Prediction_Web_App_Image2](https://github.com/MDHRDY/A_Property_Price_Prediction_Web_App/blob/master/web_app_search.png)
+
+![A_Price_Prediction_Web_App_Image3](https://github.com/MDHRDY/A_Property_Price_Prediction_Web_App/blob/master/web_app_map.png)
